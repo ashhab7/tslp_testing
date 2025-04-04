@@ -1086,7 +1086,7 @@ static int dl_linux_read(const int fd, scamper_dl_t *node)
   if(node->dlt_cb(&dl, readbuf, len))
     {
       /* scamper treats the failure of this ioctl as non-fatal */
-      if(ioctl(fd, SIOCGSTAMP, &dl.dl_tv) == 0)
+      if(ioctl(fd, SIOCGSTAMP_OLD, &dl.dl_tv) == 0)
 	{
 	  dl.dl_flags |= SCAMPER_DL_FLAG_TIMESTAMP;
 	}
